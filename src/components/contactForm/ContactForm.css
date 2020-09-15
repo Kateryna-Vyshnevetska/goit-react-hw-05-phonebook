@@ -1,0 +1,30 @@
+.noti-enter {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.noti-enter-active {
+  opacity: 1;
+  transform: translateY(-20%);
+  transition: all 375ms linear 375ms;
+}
+
+.noti-exit {
+  opacity: 1;
+  transform: translateY(-20%) 375ms;
+}
+.noti-exit-active {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 375ms linear 375ms;
+}
+
+.notification{
+  position: absolute;
+  width:300px;
+  padding: 10px;
+  text-align: center;
+  background-color: red;
+  color: white;
+  border-radius: 20px;
+}

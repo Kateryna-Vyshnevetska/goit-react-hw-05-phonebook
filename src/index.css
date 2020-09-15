@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+list {
+  list-style: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.input {
+  display: block;
+  margin: 10px;
+  width: 250px;
+  height: 30px;
+}
+
+input::-webkit-input-placeholder {
+  text-indent: 0px;
+  transition: text-indent 0.5s ease;
+}
+input::-moz-placeholder {
+  text-indent: 0px;
+  transition: text-indent 0.5s ease;
+}
+input:-moz-placeholder {
+  text-indent: 0px;
+  transition: text-indent 0.5s ease;
+}
+input:-ms-input-placeholder {
+  text-indent: 0px;
+  transition: text-indent 0.5s ease;
+}
+input:focus::-webkit-input-placeholder {
+  text-indent: 500px;
+  transition: text-indent 0.5s ease;
+}
+input:focus::-moz-placeholder {
+  text-indent: 500px;
+  transition: text-indent 0.5s ease;
+}
+input:focus:-moz-placeholder {
+  text-indent: 500px;
+  transition: text-indent 0.5s ease;
+}
+input:focus:-ms-input-placeholder {
+  text-indent: 500px;
+  transition: text-indent 0.5s ease;
+}
+
+.title {
+  margin: 10px;
+}
+
+.btn {
+  margin: 10px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: aqua;
+  color: darkblue;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: darkblue;
+  color: aqua;
+}
+
+.text {
+  margin: 10px;
+  color: darkblue;
+  font-weight: 700;
+}
+
+.list__item {
+  display: flex;
+  align-items: center;
+}
+
+.list__item:before {
+  content: "☎";
+}
+
+.title-anim-appear {
+  transform: translateX(-100%);
+}
+
+.title-anim-appear-active {
+  transform: translateX(0);
+  transition: transform 500ms linear;
+}
+
+.section {
+  width: 500px;
+  margin: 0 auto;
+}

@@ -1,0 +1,24 @@
+.ContactList {
+}
+
+.ContactItem-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.ContactItem-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 250ms cubic-bezier(1, 0, 0, 1);
+}
+
+.ContactItem-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ContactItem-exit-active {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 250ms cubic-bezier(1, 0, 0, 1);
+}
