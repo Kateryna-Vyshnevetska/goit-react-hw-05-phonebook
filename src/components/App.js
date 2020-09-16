@@ -26,12 +26,17 @@ export default function App() {
 
   useEffect(() => {
     if (filterVal) {
-      setState((prev) => ({
-        ...prev,
-        filteredItems: state.contacts.filter((el) =>
-          el.name.toLowerCase().includes(filterVal.toLowerCase())
-        ),
-      }));
+      const filt = state.contacts.filter((el) =>
+        el.name.toLowerCase().includes(filterVal.toLowerCase())
+      );
+      if (filt.length > 0) {
+        setState((prev) => ({
+          ...prev,
+          filteredItems: [...filt],
+        }));
+      } else {
+        setState((prev) => ({ ...prev, filteredItems: [] }));
+      }
     } else {
       setState((prev) => ({ ...prev, filteredItems: [] }));
     }
@@ -49,36 +54,44 @@ export default function App() {
     const newContacts = state.contacts.filter((elem) => {
       return elem.id !== id;
     });
-    setState((prev) => ({ ...prev, contacts: [...newContacts] }));
+    const newFilter = state.filteredItems.filter((elem) => {
+      return elem.id !== id;
+    });
+    setState((prev) => ({
+      ...prev,
+      contacts: [...newContacts],
+      filteredItems: [...newFilter],
+    }));
   };
 
   const getNamesByFilter = (value) => {
     setFilterVal(value);
-    console.log(filterVal);
   };
 
   return (
     <>
-    <div className="section">
-      <CSSTransition
-        in={true}
-        appear={true}
-        timeout={500}
-        classNames="title-anim"
-        unmountOnExit
-      >
-        <h1 className="title">Phonebook</h1>
-      </CSSTransition>
-      <ContactForm {...state} getContacts={getContacts} />
-      <h2 className="title">Contacts</h2>
-      <Filter getNamesByFilter={getNamesByFilter} />
-      <ContactList
-        filteredItems={
-          state.filteredItems.length > 0 ? state.filteredItems : state.contacts
-        }
-        getIdForDelete={deleteContact}
-      />
-</div>
+      <div className="section">
+        <CSSTransition
+          in={true}
+          appear={true}
+          timeout={500}
+          classNames="title-anim"
+          unmountOnExit
+        >
+          <h1 className="title">Phonebook</h1>
+        </CSSTransition>
+        <ContactForm {...state} getContacts={getContacts} />
+        <h2 className="title">Contacts</h2>
+        <Filter getNamesByFilter={getNamesByFilter} />
+        <ContactList
+          filteredItems={
+            state.filteredItems.length > 0 || filterVal
+              ? state.filteredItems
+              : state.contacts
+          }
+          getIdForDelete={deleteContact}
+        />
+      </div>
     </>
   );
 }
